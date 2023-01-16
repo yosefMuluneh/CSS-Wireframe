@@ -1,6 +1,6 @@
 let page = document.body.id
 
-let theliked = JSON.parse(localStorage.getItem('theLiked')) || []
+let theliked = JSON.parse(sessionStorage.getItem('theLiked')) || []
 let theLiked = []
 for(let i=0; i<theliked.length;i++){
     if(theliked[i] !== null){
@@ -55,7 +55,7 @@ function getSrc(){
                 theLiked.push(theImgSrc) 
             }
             console.log(theImgSrc)
-            localStorage.setItem('theLiked', JSON.stringify(theLiked))
+            sessionStorage.setItem('theLiked', JSON.stringify(theLiked))
             if (document.body.id !== 'favorite'){
                 btn.classList.toggle('liked')
             }
@@ -96,7 +96,7 @@ function fetchUrl(url){
 function setSrc(){
     let theImages = document.getElementsByTagName("img")
     theImages = Array.from(theImages)
-    let theliked = JSON.parse(localStorage.getItem('theLiked')) || []
+    let theliked = JSON.parse(sessionStorage.getItem('theLiked')) || []
     let theLiked = []
     for(let i=0; i<theliked.length;i++){
     if(theliked[i] !== null){
@@ -140,7 +140,7 @@ function setSrc(){
 
 const removeImg = () =>{
     let remvBtn = document.querySelectorAll('.like-btn')
-    theLiked = JSON.parse(localStorage.getItem("theLiked")) || []
+    theLiked = JSON.parse(sessionStorage.getItem("theLiked")) || []
     remvBtn.forEach(btn=>{
         let theImgSrc = ''
         btn.addEventListener('click',()=>{
@@ -162,7 +162,7 @@ const removeImg = () =>{
             }
             console.log(thelikeds)
            
-            localStorage.setItem('theLiked', JSON.stringify(thelikeds))
+            sessionStorage.setItem('theLiked', JSON.stringify(thelikeds))
             setSrc()
            
         })
@@ -180,13 +180,13 @@ const hideMenus = () =>{
 
 const dblClkLike = () =>{
     let theImages = document.getElementsByTagName("img")
-    let theLiked = JSON.parse(localStorage.getItem("theLiked")) || [] 
+    let theLiked = JSON.parse(sessionStorage.getItem("theLiked")) || [] 
     theImages = Array.from(theImages)
     theImages.forEach(imag=>{
         imag.ondblclick = function(){
             theLiked.push(imag.getAttribute('src'))
             console.log(imag.getAttribute('src'))
-            localStorage.setItem('theLiked', JSON.stringify(theLiked))
+            sessionStorage.setItem('theLiked', JSON.stringify(theLiked))
         }
         // imag.addEventListener("dblclick",()=>{
             
