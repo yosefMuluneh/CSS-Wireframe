@@ -147,8 +147,10 @@ const removeImg = () =>{
             
             if(btn.parentElement.previousElementSibling){
                 theImgSrc = btn.parentElement.previousElementSibling.getAttribute("src")
+                btn.parentElement.style.opacity = 0
             }else{
                 theImgSrc = btn.parentElement.firstElementChild.getAttribute("src")
+                btn.parentElement.style.opacity = 0
             }
             
             // const theliked = theLiked.filter(ele=>{
